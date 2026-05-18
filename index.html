@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glyphmark Studios</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --burgundy: #A0192E;
+            --burgundy-light: #C41E3A;
+            --gold: #9A7B2F;
+            --bg: #FFFFFF;
+            --bg-soft: #F7F4F4;
+            --bg-card: #FFFFFF;
+            --text: #1A0A0C;
+            --text-muted: #6B5557;
+            --border: #E8E0E1;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAV */
+        nav {
+            padding: 24px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-mark {
+            width: 36px;
+            height: 36px;
+            background: var(--burgundy);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            letter-spacing: -0.3px;
+        }
+
+        .nav-contact {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .nav-contact:hover {
+            color: var(--burgundy);
+        }
+
+        /* HERO */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 24px;
+            text-align: center;
+            background: var(--bg);
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--burgundy);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.05;
+            max-width: 800px;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+
+        h1 span {
+            color: var(--burgundy);
+        }
+
+        .subtitle {
+            font-size: clamp(16px, 2vw, 19px);
+            color: var(--text-muted);
+            max-width: 500px;
+            line-height: 1.7;
+            margin-bottom: 48px;
+        }
+
+        /* EMAIL FORM */
+        .form-wrapper {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 14px;
+        }
+
+        .email-input {
+            background: var(--bg);
+            border: 1.5px solid var(--border);
+            border-radius: 8px;
+            padding: 14px 20px;
+            color: var(--text);
+            font-size: 15px;
+            width: 280px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .email-input::placeholder {
+            color: #B0A0A2;
+        }
+
+        .email-input:focus {
+            border-color: var(--burgundy);
+        }
+
+        .btn-primary {
+            background: var(--burgundy);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 28px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            background: var(--burgundy-light);
+        }
+
+        .form-note {
+            font-size: 13px;
+            color: #B0A0A2;
+        }
+
+        /* DIVIDER */
+        .divider {
+            width: 100%;
+            max-width: 900px;
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 72px 0 48px;
+        }
+
+        /* PRODUCT CARD */
+        .product-section {
+            width: 100%;
+            max-width: 900px;
+            text-align: left;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .product-card {
+            background: var(--bg-soft);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 32px;
+        }
+
+        .product-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--burgundy);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            flex-shrink: 0;
+        }
+
+        .product-info h3 {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+            color: var(--text);
+        }
+
+        .product-info p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+            max-width: 540px;
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 16px;
+            background: rgba(160, 25, 46, 0.08);
+            border: 1px solid rgba(160, 25, 46, 0.2);
+            color: var(--burgundy);
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 12px;
+            border-radius: 100px;
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 28px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+            background: var(--bg-soft);
+        }
+
+        .footer-text {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--burgundy);
+        }
+
+        @media (max-width: 600px) {
+            nav { padding: 20px 24px; }
+            footer { flex-direction: column; gap: 16px; text-align: center; }
+            .product-card { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="/" class="logo">
+            <div class="logo-mark">G</div>
+            <span class="logo-text">Glyphmark Studios</span>
+        </a>
+        <a href="mailto:hello@glyphmarkstudios.com" class="nav-contact">hello@glyphmarkstudios.com</a>
+    </nav>
+
+    <main>
+        <p class="eyebrow">Coming Soon</p>
+        <h1>Better tools for<br><span>Salesforce teams</span></h1>
+        <p class="subtitle">
+            We're building focused, opinionated apps for the Salesforce ecosystem.
+            Simple to install. Powerful to use.
+        </p>
+
+        <div class="form-wrapper">
+            <input class="email-input" type="email" placeholder="your@email.com" />
+            <button class="btn-primary">Notify me</button>
+        </div>
+        <p class="form-note">No spam. Just a note when we launch.</p>
+
+        <hr class="divider" />
+
+        <div class="product-section">
+            <p class="section-label">First release</p>
+            <div class="product-card">
+                <div class="product-icon">✓</div>
+                <div class="product-info">
+                    <h3>Glyphmark Tasks</h3>
+                    <p>A modern task management experience built natively on Salesforce. Organize work, track progress, and stay focused — without leaving your CRM.</p>
+                    <span class="badge">In Development</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <span class="footer-text">© 2026 Glyphmark Studios</span>
+        <div class="footer-links">
+            <a href="mailto:hello@glyphmarkstudios.com">Contact</a>
+            <a href="mailto:support@glyphmarkstudios.com">Support</a>
+        </div>
+    </footer>
+
+</body>
+</html>
